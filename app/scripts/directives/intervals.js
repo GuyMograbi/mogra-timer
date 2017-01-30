@@ -11,7 +11,7 @@ window.angular.module('mogra-timer').directive('intervals', () => {
         <button ng-click="stop()" ng-disabled="!interval">Stop</button>
       </div>
       <ul ng-repeat="interval in intervalsArr">
-         <li>{{interval.total}}</li>
+         <li ng-class="{active: interval.active}">{{interval.total}}</li>
       </ul>
       
       <div class="current-interval">

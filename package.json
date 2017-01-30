@@ -2,20 +2,24 @@
   "name": "mogra-timer",
   "version": "0.0.0",
   "scripts": {
-    "start": "lite-server",
-    "lint" : "standard",
-    "clean" : "rm -rf dist",
-    "build" : "mkdir -p dist/node_modules && cp index.html dist/index.html && cp -R app dist && cp -R node_modules/angular dist/node_modules/angular && cp -R node_modules/lodash dist/node_modules",
-    "lint:fix" : "npm run lint -- --fix"
+    "start": "npm-run-all --parallel sass:watch server",
+    "server" : "lite-server",
+    "test" : "npm-run-all lint",
+    "lint": "standard",
+    "sass" : "node-sass -i app/style/main.scss -o style",
+    "sass:watch" : "npm run sass -- -w",
+    "clean": "rm -rf dist",
+    "build": "mkdir -p dist/node_modules && cp index.html dist/index.html && cp -R app dist && cp -R node_modules/angular dist/node_modules/angular && cp -R node_modules/lodash dist/node_modules && cp -R style dist",
+    "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
     "babel": "^6.5.2",
     "lite-server": "^2.2.2",
+    "npm-run-all": "^4.0.1",
     "standard": "^8.6.0"
   },
   "dependencies": {
     "angular": "^1.6.1",
     "lodash": "^4.17.4"
-    
   }
 }
