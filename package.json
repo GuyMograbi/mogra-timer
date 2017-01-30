@@ -1,0 +1,19 @@
+{
+  "name": "mogra-timer",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "lite-server",
+    "lint" : "standard",
+    "lint:fix" : "npm run lint -- --fix"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "lite-server": "^2.2.2",
+    "standard": "^8.6.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.1",
+    "lodash": "^4.17.4"
+    
+  }
+}
