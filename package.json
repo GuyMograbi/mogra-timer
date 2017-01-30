@@ -9,7 +9,7 @@
     "sass" : "node-sass -i app/style/main.scss -o style",
     "sass:watch" : "npm run sass -- -w",
     "clean": "rm -rf dist",
-    "build": "mkdir -p dist/node_modules && cp index.html dist/index.html && cp -R app dist && cp -R node_modules/angular dist/node_modules/angular && cp -R node_modules/lodash dist/node_modules && cp -R style dist",
+    "build": "npm run sass && mkdir -p dist/node_modules && cp index.html dist/index.html && cp -R app dist && cp -R node_modules/angular dist/node_modules/angular && cp -R node_modules/lodash dist/node_modules && cp -R style dist",
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
