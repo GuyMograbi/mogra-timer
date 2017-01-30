@@ -4,6 +4,8 @@
   "scripts": {
     "start": "lite-server",
     "lint" : "standard",
+    "clean" : "rm -rf dist",
+    "build" : "mkdir -p dist && cp index.html dist/index.html && cp -R app dist && cp -R node_modules/angular dist/node_modules/angular && cp -R node_modules/lodash dist/node_modules",
     "lint:fix" : "npm run lint -- --fix"
   },
   "devDependencies": {
