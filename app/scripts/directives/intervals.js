@@ -15,11 +15,12 @@ window.angular.module('mogra-timer').directive('intervals', () => {
       </ul>
       
       <div class="current-interval">
-        {{getActive().remaining}}
+        {{Math.floor(getActive().remaining/60)}}min {{getActive().remaining%60}}sec  
       </div>
     `,
     controller: ($scope, $interval) => {
       const _ = window._
+      $scope.Math = window.Math
       function playSound () {
         var myAudio = new window.Audio()        // create the audio object
         myAudio.src = 'http://soundbible.com/grab.php?id=2084&type=mp3' // assign the audio file to its src
@@ -31,7 +32,7 @@ window.angular.module('mogra-timer').directive('intervals', () => {
           interval = interval.trim()
           return {
             total: ~~interval,
-            remaining: ~~interval,
+            remaining: ~~interval * 60, // intervals are in minutes
             active: false
           }
         })
