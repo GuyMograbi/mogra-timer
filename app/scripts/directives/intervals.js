@@ -19,20 +19,27 @@ window.angular.module('mogra-timer').directive('intervals', () => {
       </div>
     `,
     controller: ($scope, $interval) => {
+      const sounds = []
+      let soundsCounter = 0
+      for (let i = 0; i < 6; i++) {
+        const myAudio = new window.Audio()        // create the audio object
+        myAudio.src = 'http://soundbible.com/grab.php?id=2084&type=mp3' // assign the audio file to its src
+        sounds.push(myAudio)
+      }
+
       const _ = window._
       $scope.Math = window.Math
       function playSound () {
-        var myAudio = new window.Audio()        // create the audio object
-        myAudio.src = 'http://soundbible.com/grab.php?id=2084&type=mp3' // assign the audio file to its src
-        myAudio.play()
+        sounds[soundsCounter % sounds.length].play()
+        soundsCounter++
       }
 
       function init () {
         $scope.intervalsArr = $scope.intervals.split(',').map((interval) => {
           interval = interval.trim()
           return {
-            total: ~~interval,
-            remaining: ~~interval * 60, // intervals are in minutes
+            total: interval * 1,
+            remaining: interval * 60, // intervals are in minutes
             active: false
           }
         })

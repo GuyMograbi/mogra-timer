@@ -2,6 +2,7 @@
   "name": "mogra-timer",
   "version": "0.0.0",
   "scripts": {
+    "prestart" : "npm run sass",
     "start": "npm-run-all --parallel sass:watch server",
     "server": "lite-server",
     "test": "npm-run-all lint",
